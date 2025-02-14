@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="drawCircle()">Draw Circle  </button>
+        <button onclick="drawRectangle()">Draw Rectangle</button>
+        <button onclick="colorShapes('blue  ')">Blue</button>
+        <button onclick="colorShapes('  red')">Red</button>
+        <button onclick= "colorShapes('black')">Black</button>
+    </div>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        // let circleDrawn = false;
+        // let rectDrawn = false;
+
+        function drawCircle() {
+            ctx.beginPath();
+            ctx.arc(200, 200, 50, 0, Math.PI * 2);
+            ctx.stroke();
+            // circleDrawn = true;
+        }
+
+        function drawRectangle() {
+            ctx.strokeRect(100, 100, 100, 30);
+            // rectDrawn = true;
+        }
+
+        function colorShapes(color) {
+            ctx.fillStyle = color;
+            if (circleDrawn) {
+                ctx.beginPath();
+                ctx.arc(200, 200, 50, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            if (rectDrawn) {
+                ctx.fillRect(100, 100, 100, 50);
+            }
+        }
+    </script>
+</body>
+</html>
